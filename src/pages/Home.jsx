@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MoviePicture from '../assets/movies.svg'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import MovieCard from '../components/MovieCard';
 
 const Home = () => {
 
@@ -25,21 +26,13 @@ const Home = () => {
   }
 
 
-  useEffect(() => {
-    fetchMovies();
-  }, []);
-
-
-
-
-
   return (
     <section id="landing">
       <header>
         <div className="header__container">
           <div className="header__description">
             <h1>Endless movies, TV shows and stories to uncover.</h1>
-            <h2>Find and watch your next favorite{" "} <span className="purple">Movie</span> here!</h2>
+            <h2>Find and watch your next favorite{" "} <span className="purple">Movie</span> here</h2>
             <div className="movie__search--container">
               <input 
                 type="text" 
@@ -64,18 +57,7 @@ const Home = () => {
           <div>
             {movies.length > 0 &&
               movies.map((movie) => (
-                <div className="MovieCard" key={movie.imdbID}>
-                  <a href="" className="movie__img--wrapper">
-                    <img src="https://m.media-amazon.com/images/I/81dae9nZFBS._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="" className='movie__img' />
-                  </a>
-                  <div className="movie__title">
-                    <a href="/" className='movie__title--link'>
-                      The Black Panther
-                    </a>
-                  </div>
-                  <div className="movie__year">2009</div>
-                  <div className="movie__genre">Action</div>
-                </div>
+                <MovieCard {...movie} key={movie.imdbID} />
             ))}
           </div>
 
