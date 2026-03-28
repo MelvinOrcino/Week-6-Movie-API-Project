@@ -19,8 +19,9 @@ const Home = () => {
 
 
   async function fetchMovies(id) {
-    const { data } = await axios.get(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${'Title'}`);
-    setMovies(data);
+    const { data } = await axios.get(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${id}`);
+    console.log(data);
+    setMovies(data.Search);
   }
 
 
@@ -38,7 +39,7 @@ const Home = () => {
         <div className="header__container">
           <div className="header__description">
             <h1>Endless movies, TV shows and stories to uncover.</h1>
-            <h2>Find and watch your next favorite <span className="purple">Movie</span> here!</h2>
+            <h2>Find and watch your next favorite{" "} <span className="purple">Movie</span> here!</h2>
             <div className="movie__search--container">
               <input 
                 type="text" 
@@ -55,18 +56,33 @@ const Home = () => {
             </div>
           </div>
 
-
-
-
-
-
           <figure>
             <img src={ MoviePicture } alt="" className='movie__img' />
           </figure>
+
+
+          <div>
+            {movies.length > 0 &&
+              movies.map((movie) => (
+                <div className="MovieCard" key={movie.imdbID}>
+                  <a href="" className="movie__img--wrapper">
+                    <img src="https://m.media-amazon.com/images/I/81dae9nZFBS._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="" className='movie__img' />
+                  </a>
+                  <div className="movie__title">
+                    <a href="/" className='movie__title--link'>
+                      The Black Panther
+                    </a>
+                  </div>
+                  <div className="movie__year">2009</div>
+                  <div className="movie__genre">Action</div>
+                </div>
+            ))}
+          </div>
+
         </div>
       </header>
     </section>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
