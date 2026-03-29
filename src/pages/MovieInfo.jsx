@@ -13,7 +13,7 @@ const MovieInfo = () => {
 
   async function fetchSelectedMovie() {
     const { data } = await axios.get(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${id}&page=1`);
-    setMovies(data);
+    setMovies(data.Search);
   }
 
 
