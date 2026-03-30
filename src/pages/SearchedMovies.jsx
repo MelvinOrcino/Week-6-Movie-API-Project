@@ -1,31 +1,50 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
 const SearchedMovies = () => {
 
-  const { id } = useParams();
+  const { searchId } = useParams();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState();
-  const [searchId, setSearchId] = useState(id);
+  const [searchInput, setSearchInput] = useState(searchId || "");
+  const navigate = useNavigate();
 
 
-  function onSearch() {
-    fetchMovies(searchId);
-  }
+
+
+
+  
+  const [sortOption, setSortOption] = useState("");
+
+  const sortedMovies = [...movies].sort((a, b) => {
+    if (sortOption === "OLDEST_TO_NEWEST") {
+      return Number(a.Year) - Number(b.Year);
+    }
+    if (sortOption === "NEWEST_TO_OLDEST") {
+      return Number(b.Year) - Number(a.Year);
+    }
+    return 0;
+  });
 
 
   async function fetchMovies(id) {
     setLoading(true);
     const { data } = await axios.get(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${id}`);
-    setMovies(data.Search);
+    setMovies(data.Search || []);
     setLoading(false);
   }
 
 
   useEffect(() => {
-    onSearch();
-  }, []);
+    if (searchId) {
+      fetchMovies(searchId);
+    }
+  }, [searchId]);
+
+
+ 
 
 
 
@@ -42,16 +61,16 @@ const SearchedMovies = () => {
                   <div className="movie__search--container">
                     <input 
                       type="text" 
-                      value={searchId} 
-                      onChange={(event) => setSearchId(event.target.value)}
+                      value={searchInput} 
+                      onChange={(event) => setSearchInput(event.target.value)}
                       onKeyDown={(event) => {
                         if(event.key === "Enter") {
-                          onSearch();
+                          navigate(`/searchedmovies/${searchInput}`);
                         }
                       }} 
                       className='search__input'
                     />
-                      <button className="btn browse_btn" onClick={() => onSearch()}>Search</button>
+                      <button className="btn browse_btn" onClick={() => navigate(`/searchedmovies/${searchInput}`)}>Search</button>
                   </div>
                 </div>
                 <div className="search__results">
@@ -59,7 +78,7 @@ const SearchedMovies = () => {
                       Search Results for: "{searchId}"
                     </h3>
                     <div className="search__year">
-                      <select name="" id="filter" onChange="sortMovies(event)"> 
+                      <select name="" id="filter" value={sortOption} onChange={(event) => setSortOption(event.target.value)}> 
                         <option value="" disabled selected>Sort</option>
                         <option value="OLDEST_TO_NEWEST">Oldest to Newest</option>
                         <option value="NEWEST_TO_OLDEST">Newest to Oldest</option>
@@ -84,12 +103,14 @@ const SearchedMovies = () => {
 
                   ) : (
 
-                    movies.slice(0,6).map((movie) => (
+                    sortedMovies.slice(0,6).map((movie) => (
                       <div className="movies" key={movie.imdbID}>
                         <div className="movieCard">
-                          <a href="" className="movie__img--wrapper">
+                          <Link to={`/movie/${movie.imdbID}`}>
+                          <figure className="movie__img--wrapper">
                             <img src={movie.Poster} alt="" className='movie__img' />
-                          </a>
+                          </figure>
+                          </Link>
                           <div className="movie__title">
                             <a href="/" className='movie__title--link'>
                               {movie.Title}

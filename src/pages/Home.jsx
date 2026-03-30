@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import MoviePicture from '../assets/movies.svg'
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 
 const Home = () => {
@@ -9,7 +9,9 @@ const Home = () => {
   const { id } = useParams();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState();
-  const [searchId, setSearchId] = useState(id);
+  const [searchId, setSearchId] = useState("");
+
+  const navigate = useNavigate();
   
 
 
@@ -40,12 +42,12 @@ const Home = () => {
                 onChange={(event) => setSearchId(event.target.value)} 
                 onKeyDown={(event) => {
                   if(event.key === "Enter") {
-                    onSearch();
+                    navigate(`/searchedmovies/${searchId}`)
                   }
                 }} 
                 className='search__input' 
               />
-                <button onClick={() => onSearch()} className="btn browse_btn">Browse Movies</button>
+                  <button onClick={() => navigate(`/searchedmovies/${searchId}`)} type="submit" className="btn browse_btn">Browse Movies</button>
             </div>
           </div>
 
