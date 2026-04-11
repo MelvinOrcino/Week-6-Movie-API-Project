@@ -57,10 +57,17 @@ li {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 48px;
   color: #cf0000;
   margin-bottom: 24px;
   text-align: center;
+  padding-top: 80px;
+}
+
+.homepage__title {
+  padding-top: 80px;
+  width: 100%;
+  max-width: 800px;
 }
 
 h2 {
@@ -220,7 +227,7 @@ button:active {
 }
 
 .menu__link {
-  color: white;
+  color: #cf0000;
   font-size: 40px;
   padding: 32px 0;
 }
@@ -234,19 +241,24 @@ button:active {
 }
 
 
-/* RESPONSIVENESS */
-
-@media (max-width: 768px) {
-  .nav__links {
-    display: none;
-  }
-
-  .menu__button {
-    display: block;
-    font-size: 24px;
-    cursor: pointer;
-  }
+.menu__btn {
+  display: block;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -290,13 +302,12 @@ header {
 
 .header__container {
   width: 100%;
-  max-width: 720px;
+  max-width: 1200px;  /* allow it to grow */
   margin: 0 auto;
-  height: 60%;
+  padding: 0 16px;    /* prevents edge touching */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  padding-top: 100px;
+  align-items: center;
 }
 
 .header__description {
@@ -358,6 +369,10 @@ header {
 
 
 
+
+
+
+
 /* Searched Movies Page */
 
 .section__title {
@@ -382,6 +397,21 @@ header {
 .movie__img {
   height: 480px;
 }
+
+.sort {
+  position: relative;
+}
+
+.sort select {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 150px;
+}
+
+
+
+
 
 
 
@@ -484,9 +514,10 @@ header {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 320px;
+  width: 100%;
+  max-width: 300px;
   height: 600px;
-  margin: 0 auto;
+  margin: 16px auto;
 }
 
 .movie {
@@ -496,6 +527,12 @@ header {
   background-color: white;
   margin: 20px;
 }
+
+
+
+
+
+
 
 
 /* SKELETON LOADING STATE */
@@ -525,4 +562,187 @@ header {
   height: 14px;
   background-color: lightgray;
   border-radius: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+/* MOBILE SCREEN SIZE */
+
+@media (max-width: 768px) {
+  .nav__links {
+    display: none;
+  }
+
+  .btn__menu {
+    display: block;
+  }
+
+  .header__container {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 60px;
+  }
+
+  .movie__img {
+    width: 100%;
+    max-width: 280px;
+    margin-top: 20px;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-top: 24px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .movie__search--container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search__input {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 12px;
+  }
+
+  .browse_btn {
+    width: 100%;
+    max-width: 300px;
+    margin-left: 0;
+  }
+
+  .sort select {
+    position: static; 
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .movies__wrapper {
+    flex-direction: column; 
+    align-items: center;      
+  }
+
+  .movies {
+    width: 100%;
+    max-width: 280px;
+  }
+
+
+
+  .movie__selected {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .movie__selected--img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+
+  .movie__selected--description {
+    padding-left: 0;
+    padding-top: 24px;
+    text-align: center;
+  }
+
+  .movie__selected--title {
+    font-size: 32px;
+  }
+
+  .movie__selected--top {
+    padding: 24px 0;
+    justify-content: center;
+  }
+
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .nav__links {
+    display: flex;
+  }
+
+  .btn__menu {
+    display: none;
+  }
+
+  .header__container {
+    padding-top: 80px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .movie__search--container {
+    flex-direction: row;
+  }
+
+  .search__input {
+    max-width: 260px;
+  }
+
+  .browse_btn {
+    max-width: 160px;
+  }
+
+  .movie__img {
+    max-width: 400px;
+  }
+
+  .movies__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .movies {
+    width: 45%;         
+    max-width: 300px;
+    margin: 16px;
+  }
+
+  .sort select {
+    width: auto;
+    position: static;
+  }
+
+
+  .movie__selected {
+    flex-direction: row;
+    padding: 32px;
+  }
+
+  .movie__selected--img {
+    width: 300px;
+    height: auto;
+  }
+
+  .movie__selected--description {
+    padding-left: 40px;
+  }
+
+
+
+
+
 }

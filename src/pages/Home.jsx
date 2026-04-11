@@ -39,7 +39,7 @@ const Home = () => {
       <header>
         <div className="header__container">
           <div className="header__description">
-            <h1>Endless movies, TV shows and stories to uncover.</h1>
+            <h1 className='homepage__title'>Endless movies, TV shows and stories to uncover.</h1>
             <h2>Find and watch your next favorite{" "} <span className="purple">Movie</span> here</h2>
             <div className="movie__search--container">
               <input 
