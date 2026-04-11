@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Week-6-Movie-API-Project/static/css/main.f05e3c87.css",
-    "main.js": "/Week-6-Movie-API-Project/static/js/main.15c833d7.js",
+    "main.js": "/Week-6-Movie-API-Project/static/js/main.f4929b02.js",
     "static/js/453.cc6ac37f.chunk.js": "/Week-6-Movie-API-Project/static/js/453.cc6ac37f.chunk.js",
     "static/media/movies.svg": "/Week-6-Movie-API-Project/static/media/movies.feac22d50da0eabc91cf49bbaa97ad0e.svg",
     "static/media/MovieLogo.avif": "/Week-6-Movie-API-Project/static/media/MovieLogo.d814bb96bca473ba4da6.avif",
     "index.html": "/Week-6-Movie-API-Project/index.html",
     "main.f05e3c87.css.map": "/Week-6-Movie-API-Project/static/css/main.f05e3c87.css.map",
-    "main.15c833d7.js.map": "/Week-6-Movie-API-Project/static/js/main.15c833d7.js.map",
+    "main.f4929b02.js.map": "/Week-6-Movie-API-Project/static/js/main.f4929b02.js.map",
     "453.cc6ac37f.chunk.js.map": "/Week-6-Movie-API-Project/static/js/453.cc6ac37f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f05e3c87.css",
-    "static/js/main.15c833d7.js"
+    "static/js/main.f4929b02.js"
   ]
 }
