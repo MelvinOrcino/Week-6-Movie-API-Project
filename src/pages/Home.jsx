@@ -24,8 +24,15 @@ const Home = () => {
   async function fetchMovies(id) {
     const { data } = await axios.get(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${id}`);
     console.log(data);
-    setMovies(data.Search);
+    setMovies(data.Search || []);
   }
+
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+
 
 
   return (

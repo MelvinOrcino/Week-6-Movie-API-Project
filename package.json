@@ -19,7 +19,7 @@
     "web-vitals": "^2.1.4"
   },
 
-  "homepage": "https://{username}.github.io/{repo-name}",
+  "homepage": "https://melvinorcino.github.io/Week-6-Movie-API-Project",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

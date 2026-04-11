@@ -2,7 +2,7 @@ import Nav from './components/Nav';
 import Home from './pages/Home';
 import MovieInfo from './pages/MovieInfo';
 import SearchedMovies from './pages/SearchedMovies';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 function App() {
   return (
