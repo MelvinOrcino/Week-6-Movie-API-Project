@@ -27,6 +27,10 @@ const Home = () => {
   }
 
 
+
+  
+
+
   useEffect(() => {
     fetchMovies("batman");
   }, []);
@@ -63,10 +67,13 @@ const Home = () => {
 
 
           <div>
-            {movies.length > 0 &&
+            {movies.length > 0 ? (
               movies.map((movie) => (
                 <MovieCard {...movie} key={movie.imdbID} />
-            ))}
+              ))
+            ) : (
+              <p>Loading movies...</p>
+            )}
           </div>
 
         </div>
