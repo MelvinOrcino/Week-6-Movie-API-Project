@@ -6,7 +6,6 @@ import MovieCard from '../components/MovieCard';
 
 const Home = () => {
 
-  const { id } = useParams();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState();
   const [searchId, setSearchId] = useState("");
@@ -29,7 +28,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    fetchMovies();
+    fetchMovies("batman");
   }, []);
 
 
