@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/%7Brepo-name%7D/static/css/main.bb05005b.css",
-    "main.js": "/%7Brepo-name%7D/static/js/main.1b22108d.js",
+    "main.css": "/%7Brepo-name%7D/static/css/main.f05e3c87.css",
+    "main.js": "/%7Brepo-name%7D/static/js/main.a1410c93.js",
     "static/js/453.cc6ac37f.chunk.js": "/%7Brepo-name%7D/static/js/453.cc6ac37f.chunk.js",
     "static/media/movies.svg": "/%7Brepo-name%7D/static/media/movies.feac22d50da0eabc91cf49bbaa97ad0e.svg",
     "static/media/MovieLogo.avif": "/%7Brepo-name%7D/static/media/MovieLogo.d814bb96bca473ba4da6.avif",
     "index.html": "/%7Brepo-name%7D/index.html",
-    "main.bb05005b.css.map": "/%7Brepo-name%7D/static/css/main.bb05005b.css.map",
-    "main.1b22108d.js.map": "/%7Brepo-name%7D/static/js/main.1b22108d.js.map",
+    "main.f05e3c87.css.map": "/%7Brepo-name%7D/static/css/main.f05e3c87.css.map",
+    "main.a1410c93.js.map": "/%7Brepo-name%7D/static/js/main.a1410c93.js.map",
     "453.cc6ac37f.chunk.js.map": "/%7Brepo-name%7D/static/js/453.cc6ac37f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb05005b.css",
-    "static/js/main.1b22108d.js"
+    "static/css/main.f05e3c87.css",
+    "static/js/main.a1410c93.js"
   ]
 }
