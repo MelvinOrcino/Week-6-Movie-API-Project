@@ -31,6 +31,7 @@ const SearchedMovies = () => {
 
   async function fetchMovies(id) {
     setLoading(true);
+    setMovies([]);
     const { data } = await axios.get(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${id}`);
     setMovies(data.Search || []);
     setLoading(false);
@@ -91,14 +92,13 @@ const SearchedMovies = () => {
                 { loading ? (
 
                     new Array(6).fill(0).map((_, index) => (
-                      <div className="movie" key={index}>
-                      <div className="movie__title">
-                        <div className="movie__title--skeleton"></div>
+                      <div className="movies" key={index}>
+                        <div className="movieCard">
+                          <div className="movie__img--skeleton"></div>
+                          <div className="movie__title--skeleton"></div>
+                          <div className="movie__year--skeleton"></div>
+                        </div>
                       </div>
-                      <div className="movie__body">
-                        <p className="movie__body--skeleton"></p>
-                      </div>
-                    </div>
                     ))
 
                   ) : (
